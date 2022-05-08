@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const { series, parallel } = gulp;
 const { appHTML, appCSS, appJS, appIMG } = require('./gulpTasks/app');
 const { depsCSS, depsFonts } = require('./gulpTasks/deps');
-const { monitorarArquivos, servidor } = require('./gulpTasks/servidor');
+const { watchFiles, servidor } = require('./gulpTasks/server');
 
 module.exports.default = series(
     parallel(
@@ -10,5 +10,5 @@ module.exports.default = series(
         series(depsCSS, depsFonts)
     ),
     servidor,
-    monitorarArquivos
+    watchFiles
 )

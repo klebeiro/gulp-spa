@@ -11,7 +11,7 @@ function servidor() {
     }))
 }
 
-function monitorarArquivos() {
+function watchFiles() {
     watch('src/**/*.html', () => gulp.series('appHTML')());
     watch('src/**/*.scss', () => gulp.series('appCSS')());
     watch('src/**/*.js', () => gulp.series('appJS')());
@@ -20,6 +20,6 @@ function monitorarArquivos() {
 
 
 module.exports = {
-    monitorarArquivos,
+    watchFiles,
     servidor
 }
